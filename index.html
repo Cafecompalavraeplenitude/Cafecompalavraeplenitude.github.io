@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café com Palavra e Plenitude</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5e6d3 0%, #d4a574 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .convite {
+            background: white;
+            max-width: 650px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8b6f47 0%, #d4a574 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '☕';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            top: -20px;
+            right: -20px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .titulo {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .subtitulo {
+            color: #f5e6d3;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        
+        .conteudo {
+            padding: 40px 30px;
+        }
+        
+        .intro {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #5d4e37;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .livro-destaque {
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5bf 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #8b6f47;
+        }
+        
+        .livro-destaque h3 {
+            color: #8b6f47;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .livro-info {
+            color: #5d4e37;
+            font-size: 1.1em;
+        }
+        
+        .livro-info strong {
+            color: #8b6f47;
+        }
+        
+        .detalhes {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .detalhe-item {
+            margin: 15px 0;
+            display: flex;
+            align-items: start;
+            color: #5d4e37;
+        }
+        
+        .detalhe-item .icone {
+            font-size: 1.5em;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .detalhe-item .texto {
+            flex: 1;
+            line-height: 1.6;
+        }
+        
+        .detalhe-item strong {
+            color: #8b6f47;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .encontros-semanais {
+            background: linear-gradient(135deg, #fff9f0 0%, #fef5e7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed #d4a574;
+        }
+        
+        .encontros-semanais h3 {
+            color: #8b6f47;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .encontros-semanais p {
+            color: #5d4e37;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        .chamada-final {
+            text-align: center;
+            font-size: 1.2em;
+            color: #8b6f47;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5bf 100%);
+            border-radius: 15px;
+            font-weight: bold;
+        }
+        
+        .botao-whatsapp-container {
+            margin: 35px 0 20px 0;
+            text-align: center;
+        }
+        
+        .botao-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .botao-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+            border-color: #1ad565;
+        }
+        
+        .botao-whatsapp svg {
+            flex-shrink: 0;
+        }
+        
+        .instrucao-whatsapp {
+            margin-top: 15px;
+            color: #5d4e37;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+        
+        .footer {
+            background: #8b6f47;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="convite">
+        <div class="header">
+            <h1 class="titulo">Café com Palavra<br>e Plenitude</h1>
+            <p class="subtitulo">Um encontro de leitura, reflexão e transformação</p>
+        </div>
+        
+        <div class="conteudo">
+            <p class="intro">
+                Você está convidado(a) para uma jornada especial de autoconhecimento e crescimento!
+                Vamos nos reunir para ler, refletir e compartilhar experiências que nos levam à plenitude.
+            </p>
+            
+            <div class="livro-destaque">
+                <h3>📖 Leitura de Outubro</h3>
+                <p class="livro-info">
+                    <strong>Livro:</strong> "Plenitude"<br>
+                    <strong>Autora:</strong> Camila Vieira
+                </p>
+            </div>
+            
+            <div class="detalhes">
+                <div class="detalhe-item">
+                    <div class="icone">📅</div>
+                    <div class="texto">
+                        <strong>Início:</strong>
+                        Primeira semana de Outubro
+                    </div>
+                </div>
+                
+                <div class="detalhe-item">
+                    <div class="icone">💻</div>
+                    <div class="texto">
+                        <strong>Formato:</strong>
+                        Encontros online via Google Meet ou Zoom
+                    </div>
+                </div>
+                
+                <div class="detalhe-item">
+                    <div class="icone">🗓️</div>
+                    <div class="texto">
+                        <strong>Frequência:</strong>
+                        2 a 3 encontros por mês
+                    </div>
+                </div>
+            </div>
+            
+            <div class="encontros-semanais">
+                <h3>☕ Pausas Reflexivas Semanais</h3>
+                <p>
+                    Durante a semana, teremos momentos especiais de troca: reflexões guiadas sobre os capítulos,
+                    exercícios práticos, compartilhamento de insights e conversas que aprofundam nossa leitura.
+                    Um espaço acolhedor para crescermos juntos!
+                </p>
+            </div>
+            
+            <div class="chamada-final">
+                Reserve sua xícara de café, prepare seu livro<br>
+                e venha viver esta experiência transformadora!
+            </div>
+            
+            <div class="botao-whatsapp-container">
+                <a href="#" class="botao-whatsapp" id="btnWhatsApp">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    <span>Entrar no Grupo WhatsApp</span>
+                </a>
+                <p class="instrucao-whatsapp">Clique no botão acima para participar do nosso grupo!</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            "A leitura compartilhada multiplica os sentidos e aprofunda os caminhos"
+        </div>
+    </div>
+</body>
+</html>
